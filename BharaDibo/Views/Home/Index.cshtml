@@ -6,14 +6,16 @@
 }
 
 <div class="container">
-    <h3 class="text-center mt-3">Games</h3>
+    <h2 class="text-center mt-3">Forget about buying,<br />Lets Start borrowing!</h2>
+    <hr />
+    <h3 class="text-center mt-3">Keyboard</h3>
     <div class="row">
         @{
             int i = 0;
         }
         @foreach (var item in Model)
         {
-            if (item.PRType.Equals("Games"))
+            if (item.PRType.Equals("Keyboard"))
             {
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 menuall bg-gradient bg-opacity-75 rounded-bottom">
                     <div class="Items">
@@ -49,7 +51,7 @@
         }
 
     </div>
-    <button class="viewmore" onclick="location.href='/Home/ProductPage?category=Games'">
+    <button class="viewmore" onclick="location.href='/Home/ProductPage?category=Keyboard'">
         <p class="">
             VIEW MORE
             <i class="fa fa-arrow-right"></i>
@@ -58,14 +60,14 @@
 
     <hr />
 
-    <h3 class="text-center mt-3">Consoles</h3>
+    <h3 class="text-center mt-3">Bass</h3>
     <div class="row">
         @{
             i = 0;
         }
         @foreach (var item in Model)
         {
-            if (item.PRType.Equals("Console"))
+            if (item.PRType.Equals("Bass"))
             {
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 menuall bg-gradient bg-opacity-75 rounded-bottom">
                     <div class="Items">
@@ -101,7 +103,7 @@
         }
 
     </div>
-    <button class="viewmore" onclick="location.href='/Home/ProductPage?category=Console'">
+    <button class="viewmore" onclick="location.href='/Home/ProductPage?category=Bass'">
         <p class="">
             VIEW MORE
             <i class="fa fa-arrow-right"></i>
@@ -110,14 +112,14 @@
 
     <hr />
 
-    <h3 class="text-center mt-3">Softwares</h3>
+    <h3 class="text-center mt-3">Drums</h3>
     <div class="row">
         @{
             i = 0;
         }
         @foreach (var item in Model)
         {
-            if (item.PRType.Equals("Software"))
+            if (item.PRType.Equals("Drums"))
             {
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 menuall bg-gradient bg-opacity-75 rounded-bottom">
                     <div class="Items">
@@ -153,12 +155,14 @@
         }
 
     </div>
-    <button class="viewmore" onclick="location.href='/Home/ProductPage?category=Software'">
+    <button class="viewmore" onclick="location.href='/Home/ProductPage?category=Drums'">
         <p class="">
             VIEW MORE
             <i class="fa fa-arrow-right"></i>
         </p>
     </button>
+
+    <hr />
 
     @*<hr />*@
 

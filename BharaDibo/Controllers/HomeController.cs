@@ -4,7 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BharaDibo.Models;
-
+/*
+ Main Project
+*/
 namespace BharaDibo.Controllers
 {
     public class HomeController : Controller
@@ -300,20 +302,30 @@ namespace BharaDibo.Controllers
 
             OrderList orderlist = new OrderList();
             orderlist.cusEmail = Session["CUSEmail"].ToString();
-            orderlist.totalPrice = Int32.Parse(totalvalue);
-            orderlist.orderDate = DateTime.Now;
-            string items = "";
-            Product prod;
-            foreach (var item in CartItems)
+            if(String.IsNullOrEmpty(totalvalue))
             {
-                prod = db.Products.Where(temp => temp.PRID.Equals(item)).SingleOrDefault();
-                items = items + prod.PRName + " ";
+                ViewBag.Alert = "Choose order then confirm press button";
             }
-            System.Diagnostics.Debug.WriteLine(items + " " + orderlist.cusEmail + " " + orderlist.totalPrice);
+            else
+            {
+                orderlist.totalPrice = Int32.Parse(totalvalue);
+                orderlist.orderDate = DateTime.Now;
 
-            orderlist.itemName = items;
-            db.OrderLists.Add(orderlist);
-            db.SaveChanges();
+                string items = "";
+                Product prod;
+                foreach (var item in CartItems)
+                {
+                    prod = db.Products.Where(temp => temp.PRID.Equals(item)).SingleOrDefault();
+                    items = items + prod.PRName + " ";
+                }
+                System.Diagnostics.Debug.WriteLine(items + " " + orderlist.cusEmail + " " + orderlist.totalPrice);
+
+                orderlist.itemName = items;
+                db.OrderLists.Add(orderlist);
+                db.SaveChanges();
+            }
+            
+            
 
             CartItems.Clear();
 
@@ -354,14 +366,5 @@ namespace BharaDibo.Controllers
             return View(orderList);
         }
 
-
-
-       
-        /*public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }*/
     }
 }
